@@ -1,0 +1,76 @@
+﻿@model IEnumerable<SinemaBilgi.Models.Filmler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+
+@foreach (var item in Model)
+{
+    if (item.FilmID == ViewBag.id)
+    {
+         <span id="baslik">@item.FilmAd</span>
+         <div class="cerceve">
+             <div class="detayresim">
+                 <img src="@item.FilmImg" width="200" height="280" alt="...">
+             </div>
+             <div class="detaybilgi">
+                 <table class="table-hover">
+                     <tr>
+                         <td width="120" height="35">@SinemaBilgi.Resources.Language.Vizyon_Tarihi</td>
+                         <td width="10">:</td>
+                         <td width="120">@item.VizyonTarihi</td>
+                     </tr>
+                     <tr>
+                         <td width="120" height="35">@SinemaBilgi.Resources.Language.Yapım</td>
+                         <td width="10">:</td>
+                         <td width="120">@item.Yapimci</td>
+                     </tr>
+                     <tr>
+                         <td width="120" height="35">@SinemaBilgi.Resources.Language.Tür</td>
+                         <td width="10">:</td>
+                         <td width="120">@item.Turu</td>
+                     </tr>
+                     <tr>
+                         <td width="120" height="35">@SinemaBilgi.Resources.Language.Yönetmen</td>
+                         <td width="10">:</td>
+                         <td width="120">@item.Yonetmeni</td>
+                     </tr>
+                     <tr>
+                         <td width="120" height="35">@SinemaBilgi.Resources.Language.Oyuncular</td>
+                         <td width="10">:</td>
+                         <td width="120">@item.Oyuncular</td>
+                     </tr>
+                     <tr>
+                         <td width="120" height="35">@SinemaBilgi.Resources.Language.Senaryo</td>
+                         <td width="10">:</td>
+                         <td width="120">@item.Senaryo</td>
+                     </tr>
+                     
+
+                 </table>
+             </div>
+             <div>
+                 <div class="row">
+                     <div class="col-xs-6 col-md-5">
+                         <iframe width="100%" height="250" src="@item.FragmanUrl" frameborder="0" allowfullscreen></iframe>
+                     </div>
+                 </div>
+             </div>
+             <div>
+                 <p class="lead">@item.Ozeti</p>
+             </div>
+         </div>
+               
+         
+        }
+    
+}
+
+

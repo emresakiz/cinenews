@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SinemaBilgiDBModelStoreContainer" CdmEntityContainer="SinemaBilgiDBEntities">
+    <EntitySetMapping Name="Fİlmler">
+      <EntityTypeMapping TypeName="SinemaBilgiDBModel.Fİlmler">
+        <MappingFragment StoreEntitySet="Fİlmler">
+          <ScalarProperty Name="FilmID" ColumnName="FilmID" />
+          <ScalarProperty Name="FilmAd" ColumnName="FilmAd" />
+          <ScalarProperty Name="FilmImg" ColumnName="FilmImg" />
+          <ScalarProperty Name="FilmKategori" ColumnName="FilmKategori" />
+          <ScalarProperty Name="VizyonTarihi" ColumnName="VizyonTarihi" />
+          <ScalarProperty Name="Yapimi" ColumnName="Yapimi" />
+          <ScalarProperty Name="Turu" ColumnName="Turu" />
+          <ScalarProperty Name="Suresi" ColumnName="Suresi" />
+          <ScalarProperty Name="Yonetmeni" ColumnName="Yonetmeni" />
+          <ScalarProperty Name="Oyuncular" ColumnName="Oyuncular" />
+          <ScalarProperty Name="Senaryo" ColumnName="Senaryo" />
+          <ScalarProperty Name="Yapimci" ColumnName="Yapimci" />
+          <ScalarProperty Name="Puan" ColumnName="Puan" />
+          <ScalarProperty Name="Ozeti" ColumnName="Ozeti" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fragmanlar">
+      <EntityTypeMapping TypeName="SinemaBilgiDBModel.Fragmanlar">
+        <MappingFragment StoreEntitySet="Fragmanlar">
+          <ScalarProperty Name="FragmanID" ColumnName="FragmanID" />
+          <ScalarProperty Name="FragmanUrl" ColumnName="FragmanUrl" />
+          <ScalarProperty Name="FragmanAd" ColumnName="FragmanAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Haberler">
+      <EntityTypeMapping TypeName="SinemaBilgiDBModel.Haberler">
+        <MappingFragment StoreEntitySet="Haberler">
+          <ScalarProperty Name="HaberID" ColumnName="HaberID" />
+          <ScalarProperty Name="HaberImg" ColumnName="HaberImg" />
+          <ScalarProperty Name="HaberBaslik" ColumnName="HaberBaslik" />
+          <ScalarProperty Name="HaberKisa" ColumnName="HaberKisa" />
+          <ScalarProperty Name="HaberText" ColumnName="HaberText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slider">
+      <EntityTypeMapping TypeName="SinemaBilgiDBModel.Slider">
+        <MappingFragment StoreEntitySet="Slider">
+          <ScalarProperty Name="SliderId" ColumnName="SliderId" />
+          <ScalarProperty Name="SliderUrl" ColumnName="SliderUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

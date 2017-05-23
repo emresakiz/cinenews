@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SinemaBilgiDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Filmler">
+    <Key>
+      <PropertyRef Name="FilmID" />
+    </Key>
+    <Property Name="FilmID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FilmAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="FilmImg" Type="nvarchar" MaxLength="50" />
+    <Property Name="FilmKategori" Type="nvarchar" MaxLength="10" />
+    <Property Name="Yapimi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Turu" Type="nvarchar" MaxLength="50" />
+    <Property Name="Suresi" Type="int" />
+    <Property Name="Yonetmeni" Type="nvarchar" MaxLength="50" />
+    <Property Name="Oyuncular" Type="text" />
+    <Property Name="Senaryo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Yapimci" Type="nvarchar" MaxLength="50" />
+    <Property Name="Puan" Type="int" />
+    <Property Name="Ozeti" Type="text" />
+    <Property Name="VizyonTarihi" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Fragmanlar">
+    <Key>
+      <PropertyRef Name="FragmanID" />
+    </Key>
+    <Property Name="FragmanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FragmanUrl" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="FragmanAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Haberler">
+    <Key>
+      <PropertyRef Name="HaberID" />
+    </Key>
+    <Property Name="HaberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HaberImg" Type="nvarchar" MaxLength="50" />
+    <Property Name="HaberBaslik" Type="nvarchar" MaxLength="50" />
+    <Property Name="HaberKisa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HaberText" Type="text" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="SliderId" />
+    </Key>
+    <Property Name="SliderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SliderUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="SliderAd" Type="nvarchar" MaxLength="30" />
+    <Property Name="SliderKisa" Type="nvarchar" MaxLength="30" />
+    <Property Name="SliderNo" Type="int" />
+    <Property Name="FilmID" Type="int" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="SinemaBilgiDBModelStoreContainer">
+    <EntitySet Name="Filmler" EntityType="Self.Filmler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fragmanlar" EntityType="Self.Fragmanlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Haberler" EntityType="Self.Haberler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

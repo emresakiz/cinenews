@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Üyeler</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    @foreach (var item in ViewBag.kullanicilar)
+                    {
+                        <li>@item.UserName</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+

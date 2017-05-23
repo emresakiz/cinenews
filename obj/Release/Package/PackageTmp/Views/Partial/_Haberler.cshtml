@@ -1,0 +1,29 @@
+﻿@using SinemaBilgi.Models
+@{
+    SinemaBilgiModelEntities db = new SinemaBilgiModelEntities();
+    ViewBag.a = db.Haberler.ToList();
+}
+<div class="panel panel-default">
+            <div class="panel-heading">@SinemaBilgi.Resources.Language.Haberler</div>
+            <div class="jumbotron" style="border-radius:0px; background-color:white; padding:10px;">
+                <div class="row">
+                  @{var result = (from rs in db.Haberler.ToList() select rs).OrderByDescending(y => y.HaberID).Take(6); }
+                    @foreach (var item in result)
+                    {
+                        <div class="col-xs-6 col-md-6">
+                            <div class="thumbnail">
+                                <img src="@item.HaberImg" alt="@item.HaberBaslik">
+                                
+                                    <h4>
+                                        <a href='@Url.Action("Index", "Haberler", new {parametre=@item.HaberID})'>@item.HaberBaslik</a>
+                                    </h4>
+                                    <p><small><h4>@item.HaberKisa</h4></small></p>
+                               
+                            </div>
+                        </div>
+                    }
+
+                        </div>
+
+                </div>
+    </div>

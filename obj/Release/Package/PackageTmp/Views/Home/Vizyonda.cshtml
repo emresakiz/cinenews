@@ -1,0 +1,30 @@
+﻿@model IEnumerable<SinemaBilgi.Models.Filmler>
+
+@{
+    ViewBag.Title = "Vizyonda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="baslik">@SinemaBilgi.Resources.Language.Vizyondakiler</p>
+
+
+<div class="row">
+    @foreach (var item in Model.Where(x => x.FilmKategori == "vz").OrderByDescending(y=> y.FilmID))
+{
+    <div class="vzdis">
+        <div class="vzresim">
+            <div class="img-responsive">
+                <img src="@item.FilmImg" alt="..." width="150" height="200">
+            </div>
+        </div>
+        <div class="vzbaslik"><a href='@Url.Action("Index", "Filmler", new {parametre=@item.FilmID})'>@item.FilmAd</a></div>
+        <div class="vzsabit">@SinemaBilgi.Resources.Language.Vizyon_Tarihi:&nbsp;<strong>@item.VizyonTarihi</strong></div>
+        <div class="vzsabit">@SinemaBilgi.Resources.Language.Yönetmen:&nbsp;<strong>@item.Yonetmeni</strong></div>
+        <div class="vzsabit">@SinemaBilgi.Resources.Language.Tür:&nbsp;<strong>@item.Turu</strong></div>
+        <div class="vzsabit">@SinemaBilgi.Resources.Language.Süre:&nbsp;<strong>@item.Suresi</strong></div>
+        
+</div>
+    }
+
+    </div>
+    

@@ -1,0 +1,64 @@
+﻿@model SinemaBilgi.Models.Slider
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<span style="font-size:24px; font-weight:200; color:gray;">SİL</span><br /><br />
+
+<h3>Bu görseli silmek istediğinize emin misiniz?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Görsel")
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.SliderUrl)" width="450" height="250" />
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Görsel Adı")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Görsel Not")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderKisa)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("0 Seçerseniz Görünmez 1 Seçerseniz Görünür")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Film Adı")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Filmler.FilmAd)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye geri dön", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+
+    @foreach (var item in ViewBag.haberler)
+    {
+        if (@item.HaberID == ViewBag.id)
+        {
+            <span id="baslik">@item.HaberBaslik</span>
+            <div class="cerceve">
+                <div class="detayresim">
+                    <img class="img-responsive" src="@item.HaberImg" width="280" height="355" alt="...">
+                </div>asdasdadasdasff
+            </div>
+        }
+
+    }
+
+

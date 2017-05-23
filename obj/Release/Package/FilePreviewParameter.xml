@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="cinenews" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Emre-PC\\Desktop\\cinenews\\SinemaBilgi\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Emre-PC\\Desktop\\cinenews\\SinemaBilgi\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="cinenews/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Emre-PC\\Desktop\\cinenews\\SinemaBilgi\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data source=|DataDirectory|aspnet-SinemaBilgi-20151213020828.sdf;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Emre-PC\\Desktop\\cinenews\\SinemaBilgi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="SinemaBilgiModelEntities-Web.config Connection String" description="" value="metadata=res://*/Models.SinemaBilgiModel.csdl|res://*/Models.SinemaBilgiModel.ssdl|res://*/Models.SinemaBilgiModel.msl;provider=System.Data.SqlServerCe.4.0;provider connection string=&quot;Data Source=|DataDirectory|\SinemaBilgi.sdf&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Emre-PC\\Desktop\\cinenews\\SinemaBilgi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SinemaBilgiModelEntities']/@connectionString" />
+  </parameter>
+</parameters>

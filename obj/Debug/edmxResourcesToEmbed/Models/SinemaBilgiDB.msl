@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SinemaBilgiDBModelStoreContainer" CdmEntityContainer="SinemaBilgiDBEntities">
+    <EntitySetMapping Name="Filmler">
+      <EntityTypeMapping TypeName="IsTypeOf(SinemaBilgiDBModel.Filmler)">
+        <MappingFragment StoreEntitySet="Filmler">
+          <ScalarProperty Name="FilmID" ColumnName="FilmID" />
+          <ScalarProperty Name="VizyonTarihi" ColumnName="VizyonTarihi" />
+          <ScalarProperty Name="Ozeti" ColumnName="Ozeti" />
+          <ScalarProperty Name="Puan" ColumnName="Puan" />
+          <ScalarProperty Name="Yapimci" ColumnName="Yapimci" />
+          <ScalarProperty Name="Senaryo" ColumnName="Senaryo" />
+          <ScalarProperty Name="Oyuncular" ColumnName="Oyuncular" />
+          <ScalarProperty Name="Yonetmeni" ColumnName="Yonetmeni" />
+          <ScalarProperty Name="Suresi" ColumnName="Suresi" />
+          <ScalarProperty Name="Turu" ColumnName="Turu" />
+          <ScalarProperty Name="Yapimi" ColumnName="Yapimi" />
+          <ScalarProperty Name="FilmKategori" ColumnName="FilmKategori" />
+          <ScalarProperty Name="FilmImg" ColumnName="FilmImg" />
+          <ScalarProperty Name="FilmAd" ColumnName="FilmAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(SinemaBilgiDBModel.Slider)">
+        <MappingFragment StoreEntitySet="Slider">
+          <ScalarProperty Name="SliderNo" ColumnName="SliderNo" />
+          <ScalarProperty Name="SliderKisa" ColumnName="SliderKisa" />
+          <ScalarProperty Name="SliderAd" ColumnName="SliderAd" />
+          <ScalarProperty Name="SliderUrl" ColumnName="SliderUrl" />
+          <ScalarProperty Name="SliderId" ColumnName="SliderId" />
+          <ScalarProperty Name="FilmID" ColumnName="FilmID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fragmanlar">
+      <EntityTypeMapping TypeName="SinemaBilgiDBModel.Fragmanlar">
+        <MappingFragment StoreEntitySet="Fragmanlar">
+          <ScalarProperty Name="FragmanID" ColumnName="FragmanID" />
+          <ScalarProperty Name="FragmanUrl" ColumnName="FragmanUrl" />
+          <ScalarProperty Name="FragmanAd" ColumnName="FragmanAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Haberler">
+      <EntityTypeMapping TypeName="SinemaBilgiDBModel.Haberler">
+        <MappingFragment StoreEntitySet="Haberler">
+          <ScalarProperty Name="HaberID" ColumnName="HaberID" />
+          <ScalarProperty Name="HaberImg" ColumnName="HaberImg" />
+          <ScalarProperty Name="HaberBaslik" ColumnName="HaberBaslik" />
+          <ScalarProperty Name="HaberKisa" ColumnName="HaberKisa" />
+          <ScalarProperty Name="HaberText" ColumnName="HaberText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SinemaBilgiDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

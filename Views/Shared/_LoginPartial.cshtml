@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>@User.Identity.GetUserName()<span class="caret"></span>
+            </button>
+                        
+            <ul class="dropdown-menu nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink(@SinemaBilgi.Resources.Language.Hesap_Ayarları, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">@SinemaBilgi.Resources.Language.Çıkış</a></li>
+                </ul>
+            </div>
+
+
+    }
+}
+else
+{
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Üyelik<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Üye Ol", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li><br />
+            <li>@Html.ActionLink("Giriş Yap", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    </div>
+}
+   
+

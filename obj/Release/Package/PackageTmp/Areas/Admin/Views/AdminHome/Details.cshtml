@@ -1,0 +1,114 @@
+﻿@model SinemaBilgi.Models.Filmler
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<span style="font-size:24px; font-weight:200; color:gray;">DETAYLAR</span><br /><br />
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Film Adı")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Afiş")
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.FilmImg)" width="140" height="200" />
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Fragman")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FragmanUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Kategori")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmKategori)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Yapımı")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yapimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Türü")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Turu)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Yönetmeni")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yonetmeni)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Oyuncular")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oyuncular)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Senaryo")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Senaryo)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Yapımcı")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yapimci)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Özet")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ozeti)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Vizyon Tarihi")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VizyonTarihi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.FilmID }) |
+    @Html.ActionLink("Listeye geri dön", "Index")
+</p>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SinemaBilgi.Models.Filmler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<span style="font-size:24px; font-weight:200; color:gray;">FİLMLER</span><br /><br />
+
+<p>
+    @Html.ActionLink("Yeni Bir Film Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Film Adı")
+        </th>
+        <th>
+            @Html.DisplayName("Afiş")
+        </th>
+        
+        <th>
+            @Html.DisplayName("Kategori")
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="padding-top:40px">
+            @Html.DisplayFor(modelItem => item.FilmAd)
+        </td>
+        <td>
+           <img src="@Html.DisplayFor(modelItem => item.FilmImg)" width="140" height="200" />
+        </td>
+        <td style="padding-top:40px">
+            @Html.DisplayFor(modelItem => item.FilmKategori)
+        </td>
+        
+        <td style="padding-top:40px">
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.FilmID }) |
+            @Html.ActionLink("Detyalar", "Details", new { id=item.FilmID }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.FilmID })
+        </td>
+    </tr>
+}
+
+</table>

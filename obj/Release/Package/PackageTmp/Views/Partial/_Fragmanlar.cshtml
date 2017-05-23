@@ -1,0 +1,23 @@
+﻿@model IEnumerable<SinemaBilgi.Models.Filmler>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">@SinemaBilgi.Resources.Language.Fragmanlar</div>
+
+    <!-- Table -->
+    <table class="table">
+        <div class="jumbotron" style="border-radius:0px; background-color:white; padding:10px; margin-bottom:0px;">
+            <div class="row">
+                @{var result = (from rs in Model.ToList() select rs).OrderByDescending(y => y.FilmID).Take(6); }
+                @foreach (var item in result)
+                {
+                    <div class="col-xs-6 col-md-4">
+                        <a href='@Url.Action("Index", "Filmler", new {parametre=@item.FilmID})' class="thumbnail">
+                            <iframe width="100%" height="%100" src="@item.FragmanUrl" frameborder="0" allowfullscreen></iframe>
+                            <h4>@item.FilmAd</h4>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </table>
+</div>

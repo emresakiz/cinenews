@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SinemaBilgi.Models.Haberler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<span style="font-size:24px; font-weight:200; color:gray;">HABERLER</span><br /><br />
+
+<p>
+    @Html.ActionLink("Yeni bir haber ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th width="220">
+            @Html.DisplayName("Haber Görseli")
+        </th>
+        <th width="200">
+            @Html.DisplayName("Haber Başlığı")
+        </th>
+        <th width="450">
+            @Html.DisplayName("Haber İçeriği")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           <img src="@Html.DisplayFor(modelItem => item.HaberImg)" width="200" height="250" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HaberBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HaberText)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.HaberID }) |
+            @Html.ActionLink("Detaylar", "Details", new { id=item.HaberID }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.HaberID })
+        </td>
+    </tr>
+}
+
+</table>

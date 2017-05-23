@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SinemaBilgiModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SinemaBilgiEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Filmler" EntityType="SinemaBilgiModel.Filmler" />
+    <EntitySet Name="Haberler" EntityType="SinemaBilgiModel.Haberler" />
+    <EntitySet Name="Slider" EntityType="SinemaBilgiModel.Slider" />
+    <EntitySet Name="sysdiagrams" EntityType="SinemaBilgiModel.sysdiagrams" />
+    <AssociationSet Name="FK_Slider_Filmler" Association="SinemaBilgiModel.FK_Slider_Filmler">
+      <End Role="Filmler" EntitySet="Filmler" />
+      <End Role="Slider" EntitySet="Slider" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Filmler">
+    <Key>
+      <PropertyRef Name="FilmID" />
+    </Key>
+    <Property Name="FilmID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="FilmAd" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="FilmImg" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="FragmanUrl" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="FilmKategori" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Yapimi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Turu" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Suresi" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Yonetmeni" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Oyuncular" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Senaryo" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Yapimci" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Puan" Type="Int32" />
+    <Property Name="Ozeti" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="VizyonTarihi" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Slider" Relationship="SinemaBilgiModel.FK_Slider_Filmler" FromRole="Filmler" ToRole="Slider" />
+  </EntityType>
+  <EntityType Name="Haberler">
+    <Key>
+      <PropertyRef Name="HaberID" />
+    </Key>
+    <Property Name="HaberID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="HaberImg" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="HaberBaslik" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="HaberKisa" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="HaberText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="SliderId" />
+    </Key>
+    <Property Name="SliderId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SliderUrl" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SliderAd" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="SliderKisa" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="SliderNo" Type="Int32" />
+    <Property Name="FilmID" Type="Int32" />
+    <NavigationProperty Name="Filmler" Relationship="SinemaBilgiModel.FK_Slider_Filmler" FromRole="Slider" ToRole="Filmler" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Slider_Filmler">
+    <End Role="Filmler" Type="SinemaBilgiModel.Filmler" Multiplicity="0..1" />
+    <End Role="Slider" Type="SinemaBilgiModel.Slider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filmler">
+        <PropertyRef Name="FilmID" />
+      </Principal>
+      <Dependent Role="Slider">
+        <PropertyRef Name="FilmID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

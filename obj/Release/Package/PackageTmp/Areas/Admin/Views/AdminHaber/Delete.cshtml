@@ -1,0 +1,57 @@
+﻿@model SinemaBilgi.Models.Haberler
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<span style="font-size:24px; font-weight:200; color:gray;">SİL</span><br /><br />
+
+<h3>Bu haberi silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Haberler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HaberImg)
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.HaberImg)" width="300" height="150" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HaberBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HaberBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HaberKisa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HaberKisa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HaberText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HaberText)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye geri dön", "Index")
+        </div>
+    }
+</div>

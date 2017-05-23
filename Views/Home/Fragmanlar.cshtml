@@ -1,0 +1,20 @@
+﻿@model IEnumerable<SinemaBilgi.Models.Filmler>
+@{
+    ViewBag.Title = "Fragmanlar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="baslik">@SinemaBilgi.Resources.Language.Fragmanlar</p>
+<div class="row">
+    @foreach (var item in Model.OrderByDescending(y=> y.FilmID))
+    {
+        <div class="col-xs-6 col-md-4">
+            <a href='@Url.Action("Index", "Filmler", new {parametre=@item.FilmID})'class="thumbnail">
+                <iframe width="100%" height="%100" src="@item.FragmanUrl" frameborder="0" allowfullscreen></iframe>
+                <h4>@item.FilmAd</h4>
+            </a>
+        </div>
+    }
+    
+</div>
+

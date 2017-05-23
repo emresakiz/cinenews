@@ -1,0 +1,19 @@
+﻿@using SinemaBilgi.Models
+@{
+    SinemaBilgiModelEntities db = new SinemaBilgiModelEntities();
+    ViewBag.a = db.Filmler.ToList();
+}
+<div class="panel panel-default">
+    <div class="panel-heading">@SinemaBilgi.Resources.Language.Yakında</div>
+    <div class="jumbotron" style="border-radius:0px; background-color:white; padding:10px;">
+        <ul class="nav nav-pills nav-stacked">
+            @{var result = (from rs in db.Filmler.ToList() select rs).Where(x => x.FilmKategori == "yk").OrderByDescending(y => y.FilmID).Take(10); }
+            @foreach (var item in result)
+            {
+                
+                <li role="presentation"><a href='@Url.Action("Index", "Filmler", new { parametre = @item.FilmID })'>@item.FilmAd</a></li>
+               
+            }
+        </ul>
+    </div>
+</div>
